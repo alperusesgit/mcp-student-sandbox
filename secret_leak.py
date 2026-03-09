@@ -1,3 +1,12 @@
-AWS_SECRET_KEY = "AKIA_FAKE_KEY_123456789_STUDENT_TEST"
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+AWS_SECRET_KEY = os.getenv('AWS_SECRET_KEY')
+
 def connect():
-    print(f"Connecting with: {AWS_SECRET_KEY}")
+    if AWS_SECRET_KEY:
+        print(f"Connecting with: {AWS_SECRET_KEY}")
+    else:
+        print("AWS_SECRET_KEY not set")
